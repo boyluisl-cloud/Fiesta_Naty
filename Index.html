@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Jessy!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Serpentinas */
+        .serpentina {
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            top: -100%;
+            animation: caer 3s linear infinite;
+        }
+
+        @keyframes caer {
+            to {
+                top: 100%;
+                transform: translateX(50px) rotate(360deg);
+            }
+        }
+
+        .serpentina:nth-child(1) { left: 10%; background: #ff6b6b; animation-delay: 0s; }
+        .serpentina:nth-child(2) { left: 25%; background: #4ecdc4; animation-delay: 0.5s; }
+        .serpentina:nth-child(3) { left: 40%; background: #ffe66d; animation-delay: 1s; }
+        .serpentina:nth-child(4) { left: 55%; background: #95e1d3; animation-delay: 1.5s; }
+        .serpentina:nth-child(5) { left: 70%; background: #ff9ff3; animation-delay: 2s; }
+        .serpentina:nth-child(6) { left: 85%; background: #feca57; animation-delay: 2.5s; }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 80px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            animation: aparecer 1s ease-out;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            animation: pulsar 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pastel-text {
+            font-size: 2.5em;
+            color: #764ba2;
+            margin: 30px 0;
+            font-weight: bold;
+            animation: rebote 0.8s ease-in-out infinite;
+        }
+
+        @keyframes rebote {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .mensaje {
+            font-size: 2em;
+            color: #333;
+            margin: 40px 0 20px 0;
+        }
+
+        .contador {
+            font-size: 5em;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .revelacion {
+            font-size: 3em;
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0);
+            animation: revelar 0.5s ease-out forwards;
+        }
+
+        @keyframes revelar {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Pastel decorativo */
+        .cake-container {
+            position: absolute;
+            bottom: -150px;
+            right: 20px;
+            animation: subirPastel 2s ease-out forwards;
+        }
+
+        @keyframes subirPastel {
+            to {
+                bottom: 20px;
+            }
+        }
+
+        .cake {
+            width: 150px;
+            position: relative;
+        }
+
+        .cake-layer {
+            width: 150px;
+            height: 40px;
+            background: #ff9ff3;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cake-layer:nth-child(2) {
+            width: 120px;
+            margin-left: 15px;
+            background: #ffe66d;
+        }
+
+        .cake-layer:nth-child(3) {
+            width: 90px;
+            margin-left: 30px;
+            background: #4ecdc4;
+        }
+
+        .candle {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 30px;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        .flame {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 20px;
+            background: radial-gradient(circle, #ffeb3b, #ff9800);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flama 0.3s ease-in-out infinite alternate;
+        }
+
+        @keyframes flama {
+            from {
+                transform: translateX(-50%) scale(1);
+            }
+            to {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        .confeti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            top: -50px;
+            animation: confeti-caida 3s linear infinite;
+        }
+
+        @keyframes confeti-caida {
+            to {
+                top: 100vh;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Serpentinas -->
+    <div class="serpentina"></div>
+    <div class="serpentina"></div>
+    <div class="serpentina"></div>
+    <div class="serpentina"></div>
+    <div class="serpentina"></div>
+    <div class="serpentina"></div>
+
+    <!-- Confeti -->
+    <script>
+        for(let i = 0; i < 30; i++) {
+            const confeti = document.createElement('div');
+            confeti.className = 'confeti';
+            confeti.style.left = Math.random() * 100 + '%';
+            confeti.style.animationDelay = Math.random() * 3 + 's';
+            confeti.style.background = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#95e1d3', '#ff9ff3'][Math.floor(Math.random() * 5)];
+            document.body.appendChild(confeti);
+        }
+    </script>
+
+    <div class="container">
+        <h1>🎉 Feliz Cumpleaños Jessy 🎉</h1>
+        
+        <div class="pastel-text">
+            🎂 Queremos Pastel, Pastel, Pastel 🎂
+        </div>
+
+        <div class="mensaje">LA FIESTA SERÁ</div>
+
+        <div class="contador" id="contador">10</div>
+
+        <div class="revelacion" id="revelacion" style="display: none;">
+            🏠 EN TU CASA 🏠
+        </div>
+
+        <!-- Pastel decorativo -->
+        <div class="cake-container">
+            <div class="cake">
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+                <div class="cake-layer"></div>
+                <div class="cake-layer"></div>
+                <div class="cake-layer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let contador = 10;
+        const contadorElement = document.getElementById('contador');
+        const revelacionElement = document.getElementById('revelacion');
+
+        const intervalo = setInterval(() => {
+            contador--;
+            contadorElement.textContent = contador;
+
+            if (contador === 0) {
+                clearInterval(intervalo);
+                contadorElement.style.display = 'none';
+                revelacionElement.style.display = 'block';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
